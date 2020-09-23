@@ -26,7 +26,7 @@ php_fpm_package_name = if node['php-fpm']['package_name'].nil?
                          elsif platform?('ubuntu') && node['platform_version'].to_f >= 18.04
                            'php7.2-fpm'
                          elsif platform?('ubuntu') && node['platform_version'].to_f >= 16.04
-                           'php7.0-fpm'
+                           'php5.6-fpm'
                          else
                            'php5-fpm'
                          end

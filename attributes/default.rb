@@ -14,8 +14,8 @@ else
     php_conf_dir = '/etc/php/7.2'
     php_fpm_name = 'php7.2-fpm'
   elsif platform?('ubuntu') && node['platform_version'].to_f >= 16.04
-    php_conf_dir = '/etc/php/7.0'
-    php_fpm_name = 'php7.0-fpm'
+    php_conf_dir = '/etc/php/5.6'
+    php_fpm_name = 'php5.6-fpm'
   else
     php_conf_dir = '/etc/php5'
     php_fpm_name = 'php5-fpm'
@@ -72,3 +72,5 @@ end
 default['php-fpm']['dotdeb_repository']['uri'] = 'http://packages.dotdeb.org'
 default['php-fpm']['dotdeb_repository']['key'] = 'http://www.dotdeb.org/dotdeb.gpg'
 default['php-fpm']['dotdeb-php53_repository']['uri'] = 'http://php53.dotdeb.org'
+default['php-fpm']['ondrej-php56_repository']['uri'] = 'ppa:ondrej/php'
+default['php-fpm']['ondrej-php56_repository']['key'] = '4F4EA0AAE5267A6C'
