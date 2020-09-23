@@ -19,6 +19,19 @@
 #
 
 case node['platform']
+when 'ubuntu'
+  # Configure Ondrej repository
+  if node['platform_version'].to_f <= 16.04
+    apt_repository 'ondrej' do
+      uri 'ppa:ondrej/php'
+      components ['main']
+      key '4F4EA0AAE5267A6C'
+      keyserver 'keyserver.ubuntu.com'
+      action :add
+    end
+  end
+  execute 'apt-get update'
+
 when 'debian'
   # Configure Dotdeb repos
   # TODO: move this to it's own 'dotdeb' cookbook?
